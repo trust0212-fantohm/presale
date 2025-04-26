@@ -49,7 +49,7 @@ contract SalePhasedToken is
         uint256 _minPurchaseAmount,
         uint256 _maxPurchaseAmount
     ) public initializer {
-        __ERC20_init("SaleToken", "SLT");
+        __ERC20_init("Savitri", "SAVI");
         __Ownable_init(msg.sender);
         __Pausable_init();
 

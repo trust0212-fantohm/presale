@@ -1,4 +1,4 @@
-# SalePhasedToken
+# Savitri Token Sale
 
 A smart contract for managing a phased token sale with multiple price tiers and time-based phases.
 
@@ -28,6 +28,8 @@ The sale consists of 6 phases with the following token limits and prices:
 6. 60M tokens at $0.60
 
 ### Technical Specifications
+- Token Name: Savitri
+- Token Symbol: SAVI
 - Total Supply: 240M tokens
 - Decimals: 18
 - Token Standard: ERC20
