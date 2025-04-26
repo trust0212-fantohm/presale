@@ -1,5 +1,4 @@
 import { ethers, upgrades } from "hardhat";
-import { SalePhasedToken } from "../typechain-types";
 
 async function main() {
     const [deployer] = await ethers.getSigners();
@@ -14,10 +13,10 @@ async function main() {
     const minPurchaseAmount = ethers.parseUnits("10", 6); // 10 USDT minimum
     const maxPurchaseAmount = ethers.parseUnits("10000", 6); // 10,000 USDT maximum
 
-    console.log("Deploying SalePhasedToken...");
+    console.log("Deploying saviTokenAddress...");
     
-    const SalePhasedToken = await ethers.getContractFactory("SalePhasedToken");
-    const saleToken = await upgrades.deployProxy(SalePhasedToken, [
+    const SaviToken = await ethers.getContractFactory("SAVI");
+    const saviToken = await upgrades.deployProxy(SaviToken, [
         usdtAddress,
         treasuryAddress,
         minPurchaseAmount,
@@ -27,10 +26,10 @@ async function main() {
         kind: "uups"
     });
 
-    await saleToken.waitForDeployment();
-    const saleTokenAddress = await saleToken.getAddress();
+    await saviToken.waitForDeployment();
+    const saviTokenAddress = await saviToken.getAddress();
 
-    console.log("SalePhasedToken deployed to:", saleTokenAddress);
+    console.log("saviTokenAddress deployed to:", saviTokenAddress);
 
     // // Set phase times (example times, adjust as needed)
     // const now = Math.floor(Date.now() / 1000);
@@ -44,7 +43,7 @@ async function main() {
     //     console.log(`Start: ${new Date(startTime * 1000).toISOString()}`);
     //     console.log(`End: ${new Date(endTime * 1000).toISOString()}`);
         
-    //     const tx = await saleToken.setPhaseTime(i, startTime, endTime);
+    //     const tx = await saviToken.setPhaseTime(i, startTime, endTime);
     //     await tx.wait();
     // }
 
