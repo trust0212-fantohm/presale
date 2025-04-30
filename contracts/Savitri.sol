@@ -100,7 +100,7 @@ contract Savitri is
             emit PhaseAdvanced(currentPhase);
         }
 
-        require(usdt.transferFrom(msg.sender, treasury, totalUSDTSpent), "USDT transfer failed");
+        usdt.transferFrom(msg.sender, treasury, totalUSDTSpent);
         _mint(msg.sender, tokensToBuy);
         emit TokensPurchased(msg.sender, totalUSDTSpent, tokensToBuy);
     }
